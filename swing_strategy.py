@@ -13,11 +13,11 @@ from grid_osc_strategy import GridOsc
 OPEN_PRICE = 'OPEN_PRICE'
 OPEN_VOLUME = 'OPEN_VOLUME'
 BASE_VOLUME = 'BASE_VOLUME'
-WITHDRAW_PRICE_TICKS = 'WITHDRAW_PRICE_TICKS'
+TRAIL_PRICE_TICKS = 'TRAIL_PRICE_TICKS'
 STOPWIN_BASE_PERCENTAGE = 'STOPWIN_BASE_PERCENTAGE'
-WITHDRAW_PERCENTAGE = 'WITHDRAW_PERCENTAGE'
-OPEN_OFF_VOLUME = 'OPEN_OFF_VOLUME'
-CLOSE_OFF_VOLUME = 'CLOSE_OFF_VOLUME'
+TRAIL_PERCENTAGE = 'TRAIL_PERCENTAGE'
+OPEN_OFFSET_VOLUME = 'OPEN_OFFSET_VOLUME'
+CLOSE_OFFSET_VOLUME = 'CLOSE_OFFSET_VOLUME'
 START_ZONE = 'START_ZONE'
 TREND_REVERSAL_PRICE_TRAIL_RATIO = 'TREND_REVERSAL_PRICE_TRAIL_RATIO'
 MIN_OSC_HEIGHT = 'MIN_OSC_HEIGHT'
@@ -129,16 +129,16 @@ class SwingStrategy(Strategy):
             self.p0 = strategy_params[OPEN_PRICE]
             self.pls = strategy_params[TREND_REVERSAL_PRICE_TRAIL_RATIO]
             self.ph = strategy_params[MIN_OSC_HEIGHT]
-            self.pt = strategy_params[WITHDRAW_PRICE_TICKS]
+            self.pt = strategy_params[TRAIL_PRICE_TICKS]
             self.q_max = strategy_params[OPEN_VOLUME]
             self.qa = strategy_params[BASE_VOLUME]
             self.q_offset = {
-                zone_name: (self.qa * strategy_params[OPEN_OFF_VOLUME][zone_name],
-                            self.qa * strategy_params[CLOSE_OFF_VOLUME][zone_name])
+                zone_name: (self.qa * strategy_params[OPEN_OFFSET_VOLUME][zone_name],
+                            self.qa * strategy_params[CLOSE_OFFSET_VOLUME][zone_name])
                 for zone_name in self.ZONE_NAMES
             }
             self.g_risky = strategy_params[RISKY_ZONE_ACTIVATE_LOSS_RATIO]
-            self.g0, self.gt = strategy_params[STOPWIN_BASE_PERCENTAGE], strategy_params[WITHDRAW_PERCENTAGE]
+            self.g0, self.gt = strategy_params[STOPWIN_BASE_PERCENTAGE], strategy_params[TRAIL_PERCENTAGE]
 
     def strategy_config_on_start(self):
         """
