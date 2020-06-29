@@ -1,6 +1,6 @@
 # Swing
 
-### An example implementation of automatic swing trading execution algorithm.
+### A Python implementation of automatic swing trading execution algorithm.
 
 ## Features
 
