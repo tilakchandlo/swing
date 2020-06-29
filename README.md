@@ -1,6 +1,6 @@
-# Swing Trading
+# Swing
 
-### An automatic swing trading strategy implementation.
+### An example implementation of automatic swing trading execution algorithm.
 
 ## Features
 
@@ -14,4 +14,4 @@ reversal, stop loss and profit taking.
 <p align='center'><img src="doc/state_flowchart.png" width=480></p>
 
 ## Documentation
-### Jupyter Notebook: [swing_trade.ipynb](https://nbviewer.jupyter.org/github/0liu/swing_trading/blob/master/doc/swing_trade.ipynb)
+### Jupyter Notebook: [swing.ipynb](https://nbviewer.jupyter.org/github/0liu/swing/blob/master/doc/swing.ipynb)
